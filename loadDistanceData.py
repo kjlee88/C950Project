@@ -1,21 +1,37 @@
 import csv
 
-def loadDistanceData(fileName):
-    with open(fileName) as distances:
-        # Append each row to two-dimensional list
-        distanceData = list(csv.reader(distances, delimiter=','))
+import hash_table
+import loadPackageData
 
-    # to find number of rows
-    # print(len(distanceData))
+with open('./CSVfiles/distanceCSV.csv') as distances:
+    # Append each row to two-dimensional list
+    distanceData = list(csv.reader(distances, delimiter=','))
 
-    # to find number of cols
-    # print(len(distanceData[0]))
+with open('./CSVfiles/addressCSV.csv') as addresses:
+    addressData = csv.reader(addresses)
+    next(addressData)  # skip header
+    addressList = []
+    for address in addressData:
+        # Parse
+        addressList.append(address[0])
 
-    # distanceDataflipped = (list(zip(*distanceData)))
+    def lookup_address(address):
+        index = (addressList.index(address))
+        return index
 
 
-# Load distance file
-loadDistanceData('./CSVfiles/distanceCSV.csv')
+    def get_distance(row, col):
+        distance = distanceData[row][col]
+        if distanceData[row][col] == "":
+            distance = distanceData[col][row]
+
+        print(distance)
+        return distance
 
 
-# def loadAddressData()
+
+
+
+
+
+

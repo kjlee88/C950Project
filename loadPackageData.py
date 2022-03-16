@@ -23,10 +23,9 @@ def loadPackageData(fileName):
             pDeadline = package[5]
             pMass = package[6]
             pNotes = package[7]
-            pStatus = "Loaded"
 
             # movie object
-            p = Package(pID, pAddress, pCity, pState, pZip, pDeadline, pMass, pNotes, pStatus)
+            p = Package(pID, pAddress, pCity, pState, pZip, pDeadline, pMass, pNotes)
             # print(p)
 
             # insert it into the hash table
@@ -39,11 +38,12 @@ myHash = ChainingHashTable()
 # Load movies to Hash Table
 loadPackageData('./CSVfiles/Package.csv')
 
-print("packages from Hashtable:")
-# Fetch data from Hash Table
-for i in range(len(myHash.table)):
-    print("Package: {}".format(myHash.search(i + 1)))  # 1 to 16 is sent to myHash.search()
+# print("packages from Hashtable:")
+# # Fetch data from Hash Table
+# for i in range(len(myHash.table)):
+#     print("Package: {}".format(myHash.search(i + 1)))  # 1 to 16 is sent to myHash.search()
 
+# print(myHash.search(1))
 
 # # Greedy Algorithm: Min Expenses => Max Profits
 # def greedyAlgorithmMinExpenses(budget):
