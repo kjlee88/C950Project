@@ -23,9 +23,13 @@ def loadPackageData(fileName):
             pDeadline = package[5]
             pMass = package[6]
             pNotes = package[7]
+            if pNotes == "":
+                pNotes = "N/A"
+            pStatus = "At the hub"
+
 
             # movie object
-            p = Package(pID, pAddress, pCity, pState, pZip, pDeadline, pMass, pNotes)
+            p = Package(pID, pAddress, pCity, pState, pZip, pDeadline, pMass, pNotes, pStatus)
             # print(p)
 
             # insert it into the hash table
@@ -38,6 +42,7 @@ myHash = ChainingHashTable()
 # Load movies to Hash Table
 loadPackageData('./CSVfiles/Package.csv')
 
+# print(myHash.search())
 # print("packages from Hashtable:")
 # # Fetch data from Hash Table
 # for i in range(len(myHash.table)):

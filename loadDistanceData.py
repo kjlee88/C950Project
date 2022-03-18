@@ -11,9 +11,13 @@ with open('./CSVfiles/addressCSV.csv') as addresses:
     addressData = csv.reader(addresses)
     next(addressData)  # skip header
     addressList = []
+    businessList = []
     for address in addressData:
         # Parse
-        addressList.append(address[0])
+        addressList.append(address[1])
+        businessList.append(address[0])
+
+
 
     def lookup_address(address):
         index = (addressList.index(address))
@@ -27,7 +31,6 @@ with open('./CSVfiles/addressCSV.csv') as addresses:
 
         print(distance)
         return distance
-
 
 
 
