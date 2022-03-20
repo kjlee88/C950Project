@@ -18,19 +18,17 @@ with open('./CSVfiles/addressCSV.csv') as addresses:
         businessList.append(address[0])
 
 
-
     def lookup_address(address):
         index = (addressList.index(address))
         return index
 
 
-    def get_distance(row, col):
-        distance = distanceData[row][col]
-        if distanceData[row][col] == "":
-            distance = distanceData[col][row]
+    def get_distance(current_location, destination):
+        distance = distanceData[current_location][destination]
+        if distanceData[current_location][destination] == "":
+            distance = distanceData[destination][current_location]
 
-        print(distance)
-        return distance
+        return float(distance)
 
 
 

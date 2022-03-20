@@ -11,5 +11,5 @@ class Package:
         self.status = status
 
     def __str__(self):  # overwite print(Movie) otherwise it will print object reference
-        return "%s, %s, %s, %s, %s, %s, %s, %s, %s" % (self.ID, self.address, self.city, self.state, self.zipcode, self.deadline, self.mass, self.notes, self.status)
+        return "%s, %s, %s, %s, %s, %s, %s, %s, %s" %(self.ID, self.address, self.city, self.state, self.zipcode, self.deadline, self.mass, self.notes, self.status)
 

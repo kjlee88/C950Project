@@ -30,7 +30,6 @@ def loadPackageData(fileName):
 
             # movie object
             p = Package(pID, pAddress, pCity, pState, pZip, pDeadline, pMass, pNotes, pStatus)
-            # print(p)
 
             # insert it into the hash table
             myHash.insert(pID, p)
@@ -41,6 +40,7 @@ myHash = ChainingHashTable()
 
 # Load movies to Hash Table
 loadPackageData('./CSVfiles/Package.csv')
+
 
 # print(myHash.search())
 # print("packages from Hashtable:")
