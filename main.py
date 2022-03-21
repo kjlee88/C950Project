@@ -1,4 +1,4 @@
-from datetime import datetime, time
+import datetime
 
 import distance_data
 import loadPackageData
@@ -82,7 +82,7 @@ def delivery_simulation(truck, route):
             truck3.load(i)
 
     elapsed_mile = 0
-    elapsed_time = time(truck.start_time[0], truck.start_time[1], truck.start_time[2])
+    elapsed_time = datetime.datetime(100, 1, 1, truck.start_time[0], truck.start_time[1], truck.start_time[2])
     delivered_cargo = []
     for i in range(len(route) - 1):
         truck.location = route[i]
@@ -93,10 +93,12 @@ def delivery_simulation(truck, route):
         for i, elem in enumerate(truck.cargo):
             if truck.destination == elem.address:
                 delivered_cargo.append(elem.ID)
-        print(truck.name + " delivered Package: " + str(delivered_cargo) + " at " + truck.destination + " at " + str(
-            elapsed_time) + ". Total Traveled Distance= " + str(elapsed_mile) + " mi")
+        if delivered_cargo:
+            print(truck.name + " delivered Package: " + str(delivered_cargo) + " at " + truck.destination + " at " + str(elapsed_time) + ". Total Traveled Distance= " + "{:0.2f}".format(elapsed_mile) + " mi")
+        else:
+            print(truck.name + " has returned to the Hub at " + str(elapsed_time) + ". Total Traveled Distance= " + "{:0.2f}".format(elapsed_mile) + " mi")
         delivered_cargo.clear()
 
 
-delivery_simulation(truck1, closest_route(truck1))
+delivery_simulation(truck3, closest_route(truck3))
 
