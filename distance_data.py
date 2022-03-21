@@ -24,15 +24,10 @@ with open('./CSVfiles/addressCSV.csv') as addresses:
 
 
     def get_distance(current_location, destination):
+        current_location = lookup_address(current_location)
+        destination = lookup_address(destination)
         distance = distanceData[current_location][destination]
         if distanceData[current_location][destination] == "":
             distance = distanceData[destination][current_location]
 
         return float(distance)
-
-
-
-
-
-
-
