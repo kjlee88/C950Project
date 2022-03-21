@@ -8,12 +8,12 @@ from Truck import Truck
 
 truck1 = Truck("Truck#1", [], "4001 South 700 East", "", 0, 0.3, [8, 0, 0], 0)
 truck2 = Truck("Truck#2", [], "4001 South 700 East", "", 0, 0.3, [9, 5, 0], 0)
-truck3 = Truck("Truck#3", [], "4001 South 700 East", "", 0, 0.3, [10, 20, 0], 0)
+truck3 = Truck("Truck#3", [], "4001 South 700 East", "", 0, 0.3, [9, 40, 0], 0)
 
 # Packages to be loaded to each truck by Package ID
-truck1_package_list = [13, 39, 27, 35, 4, 40, 20, 21, 19, 14, 15, 16, 34]
+truck1_package_list = [13, 39, 27, 35, 4, 40, 20, 21, 19, 14, 15, 16, 34, 6, 29, 31]
 truck2_package_list = [3, 8, 30, 18, 36, 37, 38, 5, 9, 12, 23, 11, 18, 10]
-truck3_package_list = [1, 28, 2, 33, 7, 29, 17, 6, 31, 22, 24, 25, 26]
+truck3_package_list = [1, 28, 2, 33, 7, 17, 22, 24, 25, 26]
 
 # Load the truck
 for i in truck1_package_list:
@@ -99,6 +99,7 @@ def delivery_simulation(truck, route):
             print(truck.name + " has returned to the Hub at " + str(elapsed_time) + ". Total Traveled Distance= " + "{:0.2f}".format(elapsed_mile) + " mi")
         delivered_cargo.clear()
 
+# print(closest_route(truck2))
 
-delivery_simulation(truck3, closest_route(truck3))
+delivery_simulation(truck1, closest_route(truck1))
 
