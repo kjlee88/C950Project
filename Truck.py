@@ -13,8 +13,6 @@ class Truck:
         self.start_time = start_time
         self.elapsed_time = elapsed_time
 
-        print("{0} was created.".format(self.name))
-
     def __str__(self):  # overwite print(Movie) otherwise it will print object reference
         return "%s, %s, %s, %s, %s, %s, %s, %s" % (self.name, self.cargo, self.location, self.destination, self.total_mile, self.speed, self.start_time, self.elapsed_time)
 

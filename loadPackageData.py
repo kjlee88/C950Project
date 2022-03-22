@@ -18,13 +18,13 @@ def loadPackageData(fileName):
             pDeadline = package[5]
             pMass = package[6]
             pNotes = package[7]
-            if pNotes == "":
-                pNotes = "N/A"
-            pStatus = "At the hub"
+            pStart_timestamp = ""
+            pDelivery_timestamp = ""
+            pStatus = ""
 
 
-            # movie object
-            p = Package(pID, pAddress, pCity, pState, pZip, pDeadline, pMass, pNotes, pStatus)
+            # package object
+            p = Package(pID, pAddress, pCity, pState, pZip, pDeadline, pMass, pNotes, pStart_timestamp, pDelivery_timestamp, pStatus)
 
             # insert it into the hash table
             myHash.add(pID, p)
